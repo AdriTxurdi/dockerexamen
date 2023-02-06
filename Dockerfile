@@ -23,8 +23,7 @@ RUN apt-get update -y
 
 # Instalacion de node 8
 #RUN curl -sL https://deb.nodesource.com/setup_8.x -o /tmp/nodesource_setup.sh| bash -- \
-	&& apt-get install -y nodejs \
-	&& apt-get autoremove -y
+	#
 
 #Instalacion composer (Instalar composer manualmente dentro de un docker es un infierno, por lo cual, cogemos la carpeta composer de una imagen oficial y la copiamos a nuestro docker)
 COPY --from=composer /usr/bin/composer /usr/bin/composer
