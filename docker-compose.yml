@@ -19,7 +19,7 @@ services:
             - 2dw3OcampoSepulveda
 # Apache
     apacheadrianocamp:
-        # image: jsalcedo90/ejemplodockerlaravel:2.1
+
         build: .
         container_name: ApacheAdrianOcamp
         ports: 
@@ -27,7 +27,7 @@ services:
         volumes:
             - ./www:/var/www/html
         links:
-            - mysqladrianocamp
+            - db:mysqladrianocamp
         networks:
             - 2dw3OcampoSepulveda
 # Phpmyadmin
@@ -35,7 +35,7 @@ services:
         image: phpmyadmin/phpmyadmin
         container_name: AdminAdrianOcamp
         links: 
-            - mysqladrianocamp:mysqladrianocamp
+            - db:mysqladrianocamp
         ports:
             - 8008:80
         environment:
