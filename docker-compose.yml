@@ -37,7 +37,7 @@ services:
         links: 
             - mysqladrianocamp:mysqladrianocamp
         ports:
-            - 8008:8008
+            - 8008:80
         environment:
             MYSQL_USER: AdrianOcamp
             MYSQL_PASSWORD: admin1234
