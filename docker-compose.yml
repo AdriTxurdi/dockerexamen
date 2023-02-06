@@ -1,0 +1,50 @@
+version: "3.1"
+services:
+#Base de Datos
+    MySQLAdrianOcamp:
+        image: mysql
+        container_name: MySQLAdrianOcamp
+        ports: 
+            - 3306:3306
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_DATABASE: dbname
+            MYSQL_USER: AdrianOcamp
+            MYSQL_PASSWORD: admin1234
+            MYSQL_ROOT_PASSWORD: admin1234 
+        volumes:
+            - ./dump:/docker-entrypoint-initdb.d
+            - persistent:/var/lib/mysql
+        networks:
+            - 2dw3OcampoSepulveda
+# Apache
+    ApacheAdrianOcamp:
+        # image: jsalcedo90/ejemplodockerlaravel:2.1
+        build: .
+        container_name: ApacheAdrianOcamp
+        ports: 
+            - 2208:2208
+        volumes:
+            - ./www:/var/www/html
+        links:
+            - MySQLAdrianOcamp
+        networks:
+            - 2dw3OcampoSepulveda
+# Phpmyadmin
+    AdminAdrianOcamp:
+        image: phpmyadmin/phpmyadmin
+        container_name: AdminAdrianOcamp
+        links: 
+            - MySQLAdrianOcamp:MySQLAdrianOcamp
+        ports:
+            - 8008:8008
+        environment:
+            MYSQL_USER: AdrianOcamp
+            MYSQL_PASSWORD: admin1234
+            MYSQL_ROOT_PASSWORD: admin1234
+        networks:
+            - 2dw3OcampoSepulveda
+volumes:
+    persistent:
+networks: 
+    2dw3OcampoSepulveda:
