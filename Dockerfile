@@ -22,7 +22,7 @@ RUN apt-get update -y
 # RUN apt-get install npm
 
 # Instalacion de node 8
-RUN curl -sL https://deb.nodesource.com/setup_8.x -o /tmp/nodesource_setup.sh| bash -- \
+#RUN curl -sL https://deb.nodesource.com/setup_8.x -o /tmp/nodesource_setup.sh| bash -- \
 	&& apt-get install -y nodejs \
 	&& apt-get autoremove -y
 
@@ -42,8 +42,8 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN apt update && apt install -y git 
 WORKDIR /var/www/html
 #Variable Para Repositorio GIT
-ENV GIT_LINK=https://github.com/ArkaitzTX/Erronka2.git
-ENV GIT_REP=development
+ENV GIT_LINK=https://github.com/AdriTxurdi/dockerexamen.git
+ENV GIT_REP=main
 #Clonación del repositorio GIT
 RUN git clone -b ${GIT_REP} ${GIT_LINK} .
 #Cambio de Permisos

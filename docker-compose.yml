@@ -1,7 +1,7 @@
 version: "3.1"
 services:
 #Base de Datos
-    MySQLAdrianOcamp:
+    mysqladrianocamp:
         image: mysql
         container_name: MySQLAdrianOcamp
         ports: 
@@ -18,7 +18,7 @@ services:
         networks:
             - 2dw3OcampoSepulveda
 # Apache
-    ApacheAdrianOcamp:
+    apacheadrianocamp:
         # image: jsalcedo90/ejemplodockerlaravel:2.1
         build: .
         container_name: ApacheAdrianOcamp
@@ -27,15 +27,15 @@ services:
         volumes:
             - ./www:/var/www/html
         links:
-            - MySQLAdrianOcamp
+            - mysqladrianocamp
         networks:
             - 2dw3OcampoSepulveda
 # Phpmyadmin
-    AdminAdrianOcamp:
+    adminadrianocamp:
         image: phpmyadmin/phpmyadmin
         container_name: AdminAdrianOcamp
         links: 
-            - MySQLAdrianOcamp:MySQLAdrianOcamp
+            - mysqladrianocamp:mysqladrianocamp
         ports:
             - 8008:8008
         environment:

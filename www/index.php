@@ -10,7 +10,7 @@
             <?php
                 echo "<h1>DOCKER ADIBIDEA DAUKAGU</h1>";
 
-                $conn = mysqli_connect('MySQLAdrianOcamp', 'root', 'admin1234', "dbname");
+                $conn = mysqli_connect('mysqladrianocamp', 'root', 'admin1234', "dbname");
 
                 $query = 'SELECT * From Person';
                 $result = mysqli_query($conn, $query);
