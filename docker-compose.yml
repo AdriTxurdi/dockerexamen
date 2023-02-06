@@ -6,6 +6,7 @@ services:
         container_name: MySQLAdrianOcamp
         ports: 
             - 3306:3306
+        command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_DATABASE: dbname
             MYSQL_USER: AdrianOcamp
@@ -37,6 +38,10 @@ services:
             - mysqladrianocamp:mysqladrianocamp
         ports:
             - 8008:80
+        environment:
+            MYSQL_USER: AdrianOcamp
+            MYSQL_PASSWORD: admin1234
+            MYSQL_ROOT_PASSWORD: admin1234
         networks:
             - 2dw3OcampoSepulveda
 volumes:
