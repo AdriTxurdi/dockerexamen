@@ -23,7 +23,7 @@ services:
         build: .
         container_name: ApacheAdrianOcamp
         ports: 
-            - 2208:2208
+            - 2208:80
         volumes:
             - ./www:/var/www/html
         links:
@@ -38,10 +38,6 @@ services:
             - mysqladrianocamp:mysqladrianocamp
         ports:
             - 8008:80
-        environment:
-            MYSQL_USER: AdrianOcamp
-            MYSQL_PASSWORD: admin1234
-            MYSQL_ROOT_PASSWORD: admin1234
         networks:
             - 2dw3OcampoSepulveda
 volumes:
