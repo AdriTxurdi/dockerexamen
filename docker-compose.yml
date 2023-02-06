@@ -27,7 +27,7 @@ services:
         volumes:
             - ./www:/var/www/html
         links:
-            - db:mysqladrianocamp
+            - mysqladrianocamp
         networks:
             - 2dw3OcampoSepulveda
 # Phpmyadmin
@@ -35,7 +35,7 @@ services:
         image: phpmyadmin/phpmyadmin
         container_name: AdminAdrianOcamp
         links: 
-            - db:mysqladrianocamp
+            - mysqladrianocamp:mysqladrianocamp
         ports:
             - 8008:80
         environment:
